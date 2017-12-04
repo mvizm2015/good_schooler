@@ -5,15 +5,21 @@ class User < ApplicationRecord
   has_one :profile
   has_many :projects
 
-  def self.active
-    where(active: true)
-  end
+  # def self.active
+  #   where(active: true)
+  # end
 
-  def self.cohort(cohort_num)
-    where(cohort: cohort_num)
-  end
+  scope :active, -> { where(active: true) }
 
-  def self.active_cohort(cohort_num)
-    active.cohort(cohort_num)
-  end
+  scope :cohort, -> (cohort_num) { where(cohort: cohort_num) }
+
+  # def self.cohort(cohort_num)
+  #   where(cohort: cohort_num)
+  # end
+
+  scope :active_cohort, -> (cohort_num) { active.cohort (cohort_num)}
+
+  # def self.active_cohort(cohort_num)
+  #   active.cohort(cohort_num)
+  # end
 end
