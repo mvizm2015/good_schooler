@@ -1,7 +1,7 @@
 # Good Schooler App
 
 Basic Rails app 
-- Forms
+- Form fields
 - Test Helper
 - Unique email 
 - _ forms
